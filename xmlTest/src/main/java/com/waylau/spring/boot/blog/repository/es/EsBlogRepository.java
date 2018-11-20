@@ -1,0 +1,24 @@
+package com.waylau.spring.boot.blog.repository.es;
+
+import com.waylau.spring.boot.blog.domain.es.EsBlog;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+
+public interface EsBlogRepository extends ElasticsearchRepository<EsBlog, String>
+{
+    /**
+     * 分页查询博客
+     *
+     * @param title
+     * @param summary
+     * @param content
+     * @param pageable
+     * @return
+     */
+
+    Page<EsBlog> findByTitleContainingOrSummaryContainingOrContentContaining(String title,
+                                                                             String summary,
+                                                                             String content,
+                                                                             Pageable pageable);
+}
