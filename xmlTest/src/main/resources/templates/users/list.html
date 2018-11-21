@@ -2,13 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org" 
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head>
-	<meta charset="UTF-8">
-	<title>Thymeleaf in action</title>
-</head>
+<head th:replace="~{fragments/header :: header}"></head>
 
 <body>
-	<div th:replace="~{fragments/header :: header}"></div>
+<!-- Page Content-->
+<div class="container blog-content-container">
 	<h3 th:text="${userModel.title}">waylau</h3>
 	<div>
 		<a href="/users/form.html" th:href="@{/users/form}">创建用户</a>
@@ -32,7 +30,11 @@
 			</tr>
 		</tbody>
 	</table>
-	<div th:replace="~{fragments/footer :: footer}"></div>
+
+</div><!-- /.container -->
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
 </body>
 
 </html>
